@@ -1,0 +1,177 @@
+<html>
+<head>
+<title> Formulario pessoal </title>
+<style>
+    p.letrinha{
+        font-family: "Times New Roman", Times, serif;
+    }
+    h1 {
+        margin-bottom: 20px;
+        margin-left: 20px;
+        color: #66FFFF;
+        text-shadow: 5px 5px 5px black;
+    }    
+    .submit input {
+                background-color: #66FFFF;
+                height: 40px;
+                width: 100px;
+                font-weight: bold;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border: 1px solid;
+                color: black;
+                text-align: center;
+    }
+    .button{
+                background-color: white;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+    }
+    form {
+        font-family: Verdana,Tahoma,sans-serif;
+        font-size: 15px;
+        background-color: #AB87E5;
+        max-width: 500px;
+    }
+</style>
+</head>
+<body>
+<form name="form" onsubmit="return validarFormulario()" method="POST" action="verificaTel.php"> 
+        <h1>Preencha com seus dados</h1>
+ 
+        <p class="letrinha">
+            <label for="nome">Nome</label>
+            <input type="text" id="nomeid" placeholder="Nome inteiro" required="required" name="nome" />
+        </p>
+        <p class="letrinha">
+            <label for="cpf">CPF</label>
+            <input type="string" id="cpf" placeholder="Cpf completo" required="required" name="cpf" />
+        </p>
+        <p class="letrinha">
+            <label for="idade">Idade</label>
+            <input type="number" id="idadeid" placeholder="Idade" required="required" name="idade" />
+        </p>
+        <p class="letrinha">
+            <label for="tel">Telefone</label>
+            <input type="tel" id="telid" placeholder="(ddd) 0000-0000" required="required" name="telefonefixo" />
+        </p>
+        <p class="letrinha">
+            <label for="tel">Telefone Celular</label>
+            <input type="tel" id="telcelid" placeholder="(ddd) 9 0000-0000" required="required" name="telefonecel" />
+        </p>
+        <p class="letrinha">
+            <label for="tel">Endereço</label>
+            <input type="string" id="endereco" placeholder="Av. Su papa is our" required="required" name="endereco" />
+        </p>
+        
+        <p>
+            <label for="estado">Estado Civil:
+            <select id="estado" required="required" name="estado" class="required">
+                <option value="">Escolha uma opção</option>
+                <option value="solteiro">Solteiro</option>
+                <option value="casado">Casado</option>
+                <option value="viuvo">Viúvo</option>
+                <option value="divorciado">Divorciado</option>
+            </select></label> 
+            
+        </p>
+        <p class="letrinha">
+            <label for="sexo">Sexo</label>
+            <input type="radio" name="genero" value="masc"> Masculino
+            <input type="radio" name="genero" value="fem"> Feminino
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="email" id="emailid" placeholder="email@mail.com" required="required" name="email" />
+            
+        </p>
+        <p>
+            <label for="bens">Bens financiados:</label>
+            <input type="checkbox" name="carro" value="car">Carro
+            <input type="checkbox" name="barco" value="bar">Barco
+            <input type="checkbox" name="imovel" value="imo">Imóvel
+        </p>
+       <p class="submit">
+            <input type="submit" onclick="Enviar();" value="Cadastrar" />
+        </p>
+ 
+    
+    </form>
+    <script>
+            /*function validarEmail(id){
+                    if($(id).value.indexOf("@") < 1 || $(id).value.indexOf(".") == -1){
+                        return false;
+                    }else{
+                        return true;
+                    }
+            }
+            function validarNome(){
+                var x=document.forms["form"]["frame"].value;
+                if(x==null || x==""){
+                    alert("Eh necessario preencher com o nome");
+                    return false;
+                }else{
+                    return true;
+                }
+            }*/
+                function validarFormulario(form){
+                    //Validação do nome
+                    var x=document.forms["form"]["frame"].value;
+                    if(x==null || x==""){
+                        alert("Eh necessario preencher com o nome");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                    //Validação do email
+                    if($(id).value.indexOf("@") < 1 || $(id).value.indexOf(".") == -1){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                    //Validação do sexo
+                    
+                    var sex = document.forms["form"]["genero"].checked;
+                    if(sex == false)
+                    {
+                        window.alert("Você deve selecionar o sexo");
+                        return false;
+                    }
+                }
+                //Validação estado civil
+                    
+                /*Validação dos bens
+                if (form.bens.checked == false )
+                {
+                 alert('Você deve selecionar algum bem que roubou');
+                    return false;
+                }else
+                    return true;
+                
+            }*/
+                /*if(form.estado.selectedIndex==0){
+                        alert("Seleciona o seu estado civil");
+                        return false;*/
+                    
+                /*$('#estado').change(function(){
+                   var value = $(this).val();
+                      if(value == ''){
+                        alert('Escolha um estado civil');        
+                    }
+                });*/
+            
+            </script>
+    </body>
+    </html>
+    
+
+    
+
